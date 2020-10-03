@@ -1,0 +1,205 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace class_property
+{
+    class Person
+    {
+        private string name;// Field - variable Field
+
+        public string Name //Class property
+        
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        private double mobileno;// Field - variable Field
+
+        public double Mobileno //Class property
+
+        {
+            get { return mobileno; }
+            set { mobileno = value; }
+        }
+
+        private string address;// Field - variable Field
+
+        public string Address //Class property
+
+        {
+            get { return address; }
+            set { address = value; }
+        }
+
+        
+
+
+    }
+    //Main Method -- Driver code -- Execution  
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            //instaiating the class Person
+            Person inst = new Person();
+            //Syntax of creating an object class name "Object-name" = new(Operator) class name();
+            //Invoke the methods - Get and Set ==> Accurate result  
+            //Assign the values to the class Property
+            Console.WriteLine("The details are:");
+            inst.Name = "Haritha";
+            inst.Mobileno = Convert.ToDouble(999932746);
+            inst.Address = "visakhaptnam";
+            
+            Console.WriteLine(inst.Name);
+            Console.WriteLine(inst.Mobileno);
+            Console.WriteLine(inst.Address);
+            
+            Console.ReadKey();
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace createdirectory
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            //var currentDirectory = Directory.GetCurrentDirectory();
+            //Console.WriteLine(currentDirectory);
+            //Console.ReadKey();
+
+
+            var documentPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            var Directoryname = $@"{documentPath}\test";
+            DirectoryInfo info = Directory.CreateDirectory(Directoryname);
+            Console.WriteLine($@"Complete name of the directory: { info.FullName},Name: { info.Name}, Parent:info.Parent");
+            Console.ReadKey();
+
+
+        }
+    }
+}
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace jagged_array
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //declare the array of 5 elements
+            int[][] jaggedarray = new int[5][];
+           
+            jaggedarray[0] = new int[4] { 3, 4, 5, 6 };
+            jaggedarray[1] = new int[4] {  4, 5, 6,7 };
+            jaggedarray[2] = new int[2] { 5, 6 };
+            jaggedarray[3] = new int[6] { 1,9,3, 4, 5, 6 };
+            jaggedarray[4] = new int[5] { 7, 6,2,1,78};
+
+            for(int i = 0; i < jaggedarray.Length; i++)
+            {
+                Console.WriteLine("Elements of ({0}):", i);
+                for(int j = 0; j < jaggedarray[i].Length;  j++)
+                {
+                    Console.WriteLine(jaggedarray[i][j] + "\t");
+                }
+                
+            }
+            Console.ReadLine();
+
+
+
+        }
+    }
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace Stream_writer
+{
+
+    class fileexample
+    {
+        class writetofile
+        {
+            public void Data()
+            {
+                //This will create a file name sample.txt from your local machine
+                //stream writer is the inbuilt func in c#
+                //streamwriter "name" = new streamwriter("loc of file")
+                StreamWriter sw = new StreamWriter("C:\\Users\\Vamsi\\Desktop\\stream.txt");
+                //to write on the console scren 
+                Console.WriteLine("Enter what text you want to display on the file");
+                //to display the input from the user
+                string display = Console.ReadLine();
+                //to writeline in the buffer
+                sw.WriteLine(display);
+                //to write the output stream
+            
+                sw.Flush();
+                //we neeed to close the writer
+                sw.Close();
+
+            }
+
+
+
+
+            //driver code/main method
+            class Program
+            {
+                static void Main(string[] args)
+                {
+
+                    writetofile wr = new writetofile();
+                    wr.Data();
+                    Console.ReadKey();
+
+                    FileStream fs = new FileStream("C:\\Users\\Vamsi\\Desktop\\stream.txt", FileMode.OpenOrCreate);
+                    StreamReader sr = new StreamReader(fs);
+                    String lines = sr.ReadLine();
+                    Console.WriteLine(lines);
+
+                    sr.Close();
+                    fs.Close();
+
+                    Console.ReadLine();
+                }
+
+            }
+        }
+    }
+}
+
+        
+

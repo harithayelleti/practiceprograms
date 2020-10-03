@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace Stream_writer
+{
+
+    class fileexample
+    {
+        class writetofile
+        {
+            public void Data()
+            {
+                //This will create a file name sample.txt from your local machine
+                //stream writer is the inbuilt func in c#
+                //streamwriter "name" = new streamwriter("loc of file")
+                StreamWriter sw = new StreamWriter("C:\\Users\\Vamsi\\Desktop\\stream.txt");
+                //to write on the console scren 
+                Console.WriteLine("Enter what text you want to display on the file");
+                //to display the input from the user
+                string display = Console.ReadLine();
+                //to writeline in the buffer
+                sw.WriteLine(display);
+                //to write the output stream
+            
+                sw.Flush();
+                //we neeed to close the writer
+                sw.Close();
+
+            }
+
+
+
+
+            //driver code/main method
+            class Program
+            {
+                static void Main(string[] args)
+                {
+
+                    writetofile wr = new writetofile();
+                    wr.Data();
+                    Console.ReadKey();
+
+                    FileStream fs = new FileStream("C:\\Users\\Vamsi\\Desktop\\stream.txt", FileMode.OpenOrCreate);
+                    StreamReader sr = new StreamReader(fs);
+                    String lines = sr.ReadLine();
+                    Console.WriteLine(lines);
+
+                    sr.Close();
+                    fs.Close();
+
+                    Console.ReadLine();
+                }
+
+            }
+        }
+    }
+}
+
+        
+
