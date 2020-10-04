@@ -1,0 +1,481 @@
+
+
+
+----------jaggedarray---------------------------------------
+#1
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace jagged_array
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //declare the array of 6 elements
+            int[][] arr = new int[6][];
+           
+            arr[0] = new int[4] {5,6,7,8} ;
+            arr[1] = new int[6] {1,2,3,4,5,6 };
+            arr[2] = new int[2] { 6,8};
+            arr[3] = new int[3] { 9,10,23};
+            arr[4] = new int[5] { 89,28,56,78,24};
+            arr[5] = new int[9] { 89,28,56,78,24,34,56,98,1};
+
+            for(int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine("Elements of ({0}):", i);
+                for(int j = 0; j < arr[i].Length;  j++)
+                {
+                    Console.WriteLine(arr[i][j] + "\t");
+                }
+                
+            }
+            Console.ReadLine();
+
+
+
+        }
+    }
+}
+
+
+#2
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace jaggedarray
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //declare the array of 5 elements
+            int[][] arr = new int[4][];
+           
+            arr[0] = new int[] {51,61,71,81} ;
+            arr[1] = new int[] {11,22,33,44,55,66 };
+            arr[2] = new int[] { 46,18};
+            arr[3] = new int[] { 9,0,23};
+            
+
+            for(int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine("Elements of ({0}):", i);
+                for(int j = 0; j < arr[i].Length;  j++)
+                {
+                    Console.WriteLine(arr[i][j] + "\t");
+                }
+                
+            }
+            Console.ReadLine();
+
+
+
+        }
+    }
+}
+
+
+-----------------------stream writer/reader--------------
+
+#1
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace Stream_writer
+{
+
+    class fileexample
+    {
+        class writetofile
+        {
+            public void Data()
+            {
+                //This will create a file name sample.txt from your local machine
+                //stream writer is the inbuilt func in c#
+                //streamwriter "name" = new streamwriter("loc of file")
+                StreamWriter sw = new StreamWriter("C:\\Users\\Vamsi\\Desktop\\sample.txt");
+                //to write on the console scren 
+                Console.WriteLine("Enter what text you want to display on the file");
+                //to display the input from the user
+                string display = Console.ReadLine();
+                //to writeline in the buffer
+                sw.WriteLine(display);
+                //to write the output stream
+            
+                sw.Flush();
+                //we neeed to close the writer
+                sw.Close();
+
+            }
+
+
+
+
+            //driver code/main method
+            class Program
+            {
+                static void Main(string[] args)
+                {
+
+                    writetofile wr = new writetofile();
+                    wr.Data();
+                    Console.ReadKey();
+
+                    FileStream fs = new FileStream("C:\\Users\\Vamsi\\Desktop\\sample.txt", FileMode.OpenOrCreate);
+                    StreamReader sr = new StreamReader(fs);
+                    String lines = sr.ReadLine();
+                    Console.WriteLine(lines);
+
+                    sr.Close();
+                    fs.Close();
+
+                    Console.ReadLine();
+                }
+
+            }
+        }
+    }
+}
+
+#2
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace Stream_writer
+{
+
+    class fileex1
+    {
+        class writeoffile
+        {
+            public void Data()
+            {
+                //This will create a file name sample.txt from your local machine
+                //stream writer is the inbuilt func in c#
+                //streamwriter "name" = new streamwriter("loc of file")
+                StreamWriter sw = new StreamWriter("C:\\Users\\Vamsi\\Desktop\\sample1.txt");
+                //to write on the console scren 
+                Console.WriteLine("Enter what text you want to display on the file");
+                //to display the input from the user
+                string display = Console.ReadLine();
+                //to writeline in the buffer
+                sw.WriteLine(display);
+                //to write the output stream
+            
+                sw.Flush();
+                //we neeed to close the writer
+                sw.Close();
+
+            }
+
+
+
+
+            //driver code/main method
+            class Program
+            {
+                static void Main(string[] args)
+                {
+
+                    writeoffile wr = new writeoffile();
+                    wr.Data();
+                    Console.ReadKey();
+
+                    FileStream fs = new FileStream("C:\\Users\\Vamsi\\Desktop\\sample1.txt", FileMode.OpenOrCreate);
+                    StreamReader sr = new StreamReader(fs);
+                    String lines = sr.ReadLine();
+                    Console.WriteLine(lines);
+
+                    sr.Close();
+                    fs.Close();
+
+                    Console.ReadLine();
+                }
+
+            }
+        }
+    }
+}
+
+-----------------Directory--------------
+
+#1
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace createdirectory
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            var currentDirectory = Directory.GetCurrentDirectory();
+            //Console.WriteLine(currentDirectory);
+            Console.WriteLine(Directory.GetDirectoryRoot(currentDirectory));//to find the current directory
+            Console.ReadKey();
+
+
+            var documentPath = Environment.GetFolderPath(Environment.SpecialFolder.MyComputer);//to create a new directory
+            var Directoryname = $@"{documentPath}\direct"; //path and name for the directory
+            DirectoryInfo info = Directory.CreateDirectory(Directoryname);
+            Console.WriteLine($@"Complete name of the directory: { info.FullName},Name: { info.Name}, Parent:info.Parent");
+            Console.ReadKey();
+
+
+        }
+    }
+}
+
+
+#2
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace createdirectory
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            var currentDirectory = Directory.GetCurrentDirectory();
+            Console.WriteLine(currentDirectory);//to find current directory
+            Console.WriteLine(Directory.GetDirectoryRoot(currentDirectory));//to find the current root directory
+            Console.ReadKey();
+
+
+            var documentPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);//to create a new directory
+            var Directoryname = $@"{documentPath}\direct1"; //path and name for the directory
+            DirectoryInfo info = Directory.CreateDirectory(Directoryname);
+            Console.WriteLine($@"Complete name of the directory: { info.FullName},Name: { info.Name}, Parent:info.Parent");
+            Console.ReadKey();
+
+
+        }
+    }
+}
+
+--------------------class property-----------------
+#1
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace class_property
+{
+    class Person
+    {
+        private string name;// Field - variable Field
+
+        public string Name //Class property
+        
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        private double mobileno;// Field - variable Field
+
+        public double Mobileno //Class property
+
+        {
+            get { return mobileno; }
+            set { mobileno = value; }
+        }
+
+        private string address;// Field - variable Field
+
+        public string Address //Class property
+
+        {
+            get { return address; }
+            set { address = value; }
+        }
+
+        private string email;// Field - variable Field
+
+        public string Email //Class property
+
+        {
+            get { return email; }
+            set { email = value; }
+        }
+
+        private double aadhar;// Field - variable Field
+
+        public double Aadhar //Class property
+
+        {
+            get { return aadhar; }
+            set { aadhar = value; }
+        }
+
+
+    }
+    //Main Method -- Driver code -- Execution  
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            //instaiating the class Person
+            Person inst = new Person();
+            //Syntax of creating an object class name "Object-name" = new(Operator) class name();
+            //Invoke the methods - Get and Set ==> Accurate result  
+            //Assign the values to the class Property
+            Console.WriteLine("The details are:");
+            inst.Name = "Haritha";
+            inst.Mobileno = Convert.ToDouble(999932746);
+            inst.Address = "visakhaptnam";
+            inst.Email = "haritha51298@gmail.com";
+            inst.Aadhar = Convert.ToDouble(842325045873);
+            Console.WriteLine(inst.Name);
+            Console.WriteLine(inst.Mobileno);
+            Console.WriteLine(inst.Address);
+            Console.WriteLine(inst.Email);
+            Console.WriteLine(inst.Aadhar);
+            Console.ReadKey();
+        }
+    }
+}
+
+#2
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace class_property1
+{
+    class Program
+    {
+
+
+
+        class Courses
+        {
+            private string name;// Field - variable Field
+
+            public string Name //Class property
+
+            {
+                get { return name; }
+                set { name = value; }
+            }
+
+            private int id;// Field - variable Field
+
+            public int ID //Class property
+
+            {
+                get { return id; }
+                set { id = value; }
+            }
+
+            private string faculty;// Field - variable Field
+
+            public string Faculty //Class property
+
+            {
+                get { return faculty; }
+                set { faculty = value; }
+            }
+
+            private string career;// Field - variable Field
+
+            public string Career //Class property
+
+            {
+                get { return career; }
+                set { career = value; }
+            }
+
+            
+
+
+        }
+        //Main Method -- Driver code -- Execution  
+
+        static void Main(string[] args)
+        {
+
+            //instaiating the class Person
+            Courses del = new Courses();
+            //Syntax of creating an object class name "Object-name" = new(Operator) class name();
+            //Invoke the methods - Get and Set ==> Accurate result  
+            //Assign the values to the class Property
+            Console.WriteLine("The details are:");
+            /*del.Name = "C#";
+            //del.Name = ".Net";
+            //del.ID = Convert.ToInt32(20);
+            del.ID = Convert.ToInt32(21);
+            del.Faculty = "Sachin sir";
+            del.Career = "DXC Training";*/
+
+
+            Console.WriteLine("Enter course Name: ");
+            del.Name = Console.ReadLine();
+            Console.WriteLine("Enter course ID ");
+            del.ID = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter course Faculty: ");
+            del.Faculty = Console.ReadLine();
+            Console.WriteLine("Enter course career: ");
+            del.Career = Console.ReadLine();
+
+
+
+
+
+            /*Console.WriteLine(del.Name);
+            Console.WriteLine(del.ID);
+            Console.WriteLine(del.Faculty);
+            Console.WriteLine(del.Career);*/
+            
+            Console.ReadKey();
+
+
+
+        }
+    }
+}
+
