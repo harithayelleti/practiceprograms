@@ -48,7 +48,8 @@ namespace queue_int
                 Console.ReadKey();
             }
 
-            
+            //Dequeue of 6 elements
+
             Console.WriteLine("The elements after applying dequue:" + i.Dequeue());//dequeue of last element stack collection
             Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
             Console.WriteLine("The current elements exists in the queue" + i.Contains(2));
@@ -67,12 +68,12 @@ namespace queue_int
             Console.WriteLine("The elements after applying dequeue:" + i.Dequeue());
             Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
             Console.WriteLine("The current elements exists in the queue" + i.Contains(12));
-
+            //
             i.Enqueue(20);
             Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
             Console.WriteLine("The current elements exists in the queue:" + i.Contains(22));//contains
 
-
+            //dequeue of 5 elements
             Console.WriteLine("The elements after applying dequeue:" + i.Dequeue());
             Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
             Console.WriteLine("The current elements exists in the queue" + i.Contains(14));
@@ -88,41 +89,20 @@ namespace queue_int
             Console.WriteLine("The elements after applying dequeue:" + i.Dequeue());
             Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
             Console.WriteLine("The current elements exists in the queue" + i.Contains(22));
-
+            // enqueue of elements
             i.Enqueue(24);
-            Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
-            Console.WriteLine("The current elements exists in the queue:" + i.Contains(22));//contains
             i.Enqueue(26);
-            Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
-            Console.WriteLine("The current elements exists in the queue:" + i.Contains(22));//contains
             i.Enqueue(28);
-            Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
-            Console.WriteLine("The current elements exists in the queue:" + i.Contains(22));//contains
             i.Enqueue(30);
-            Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
-            Console.WriteLine("The current elements exists in the queue:" + i.Contains(22));//contains
             i.Enqueue(32);
-            Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
-            Console.WriteLine("The current elements exists in the queue:" + i.Contains(22));//contains
             i.Enqueue(34);
-            Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
-            Console.WriteLine("The current elements exists in the queue:" + i.Contains(22));//contains
             i.Enqueue(36);
-            Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
-            Console.WriteLine("The current elements exists in the queue:" + i.Contains(22));//contains
             i.Enqueue(38);
-            Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
-            Console.WriteLine("The current elements exists in the queue:" + i.Contains(22));//contains
             i.Enqueue(40);
-            Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
-            Console.WriteLine("The current elements exists in the queue:" + i.Contains(22));//contains
-            i.Enqueue(42);
-            Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
-            Console.WriteLine("The current elements exists in the queue:" + i.Contains(22));//contains
+            i.Enqueue(42);    
             i.Enqueue(44);
-            Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
-            Console.WriteLine("The current elements exists in the queue:" + i.Contains(22));//contains
-
+            
+            // Dequeue of 4 elements
             Console.WriteLine("The elements after applying dequeue:" + i.Dequeue());
             Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
             Console.WriteLine("The current elements exists in the queue" + i.Contains(24));
@@ -135,7 +115,7 @@ namespace queue_int
             Console.WriteLine("The elements after applying dequeue:" + i.Dequeue());
             Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
             Console.WriteLine("The current elements exists in the queue" + i.Contains(30));
-
+            //dequeue of 3 elements
             Console.WriteLine("The elements after applying dequeue:" + i.Dequeue());
             Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
             Console.WriteLine("The current elements exists in the queue" + i.Contains(32));
@@ -145,7 +125,7 @@ namespace queue_int
             Console.WriteLine("The elements after applying dequeue:" + i.Dequeue());
             Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
             Console.WriteLine("The current elements exists in the queue" + i.Contains(36));
-
+            //dequeue of 2 elements
             Console.WriteLine("The elements after applying dequeue:" + i.Dequeue());
             Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
             Console.WriteLine("The current elements exists in the queue" + i.Contains(38));
@@ -153,12 +133,8 @@ namespace queue_int
             Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
             Console.WriteLine("The current elements exists in the queue" + i.Contains(40));
 
-
-
-
             Console.WriteLine("The elements of queue  in peek is:" + i.Peek());//to find the top/peek of my stack
             
-
             Console.WriteLine("The current elements prsesnt in the queue:" + i.Count());//count
 
             foreach (int x in i)
