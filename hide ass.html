@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>functions</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#mybtn1").dblclick(function () {
+                $("[href]").hide();
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#mybtn2").dblclick(function () {
+                $("a[target='_blank']").hide();
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("a[target!='_blank']").hide();
+            });
+        });
+    </script>
+    <script>                      
+        $(document).ready(function () {
+            $("button").click(function () {
+                $(":button").hide();
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("tr:even").css("background-color","cyan");
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("tr:odd").css("background-color", "lightpink");
+        });
+    </script>
+
+</head>
+<body>
+    <h1><a href="https://www.google.com/imghp?hl=EN">jquery</a></h1>
+    <h2><a href="https://www.google.com/imghp?hl=EN" target="_blank">jquery tutorial</a></h2>
+    <h3><a href="https://www.google.com/imghp?hl=EN" target="_blank">jquery</a></h3>
+
+    <p><a href="https://www.google.com/imghp?hl=EN">CSS Tutorial</a></p>
+
+    <button id="mybtn1">Click here and see the magic</button>
+    <button id="mybtn2">Click here and see the magic</button>
+
+
+    <button>Click here and see the magic</button>
+    <table border="1">
+        <tr>
+            <th>food</th>
+            <th>hotel</th>
+        </tr>
+        <tr>
+            <td>chicken pasta</td>
+            <td>prostogue cafe</td>
+        </tr>
+        <tr>
+            <td>pulihora</td>
+            <td>annapurna hotel </td>
+        </tr>
+        <tr>
+            <td>paneer butter masala</td>
+            <td>bunnys family resturant</td>
+        </tr>
+        <tr>
+            <td>chicken noodles</td>
+            <td>royal resturant</td>
+        </tr>
+    </table>
+
+</body>
+</html>

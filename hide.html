@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("p").hide();
+                $("h1").hide();
+                $("h2").hide();
+                $(this).hide();
+                $("*").hide();
+                $("p.intro").hide();
+                $("h1.intro").hide();
+
+            });
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            $("p").click(function () {
+                $(this).hide();
+            });
+        });
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("h1").dblclick(function () {
+                $(this).hide();
+            });
+        });
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#hari").mouseenter(function () {
+                alert("u have slected haritha");
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("p").mouseenter(function () {
+                alert("navigate to other page");
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#bunny").mouseenter(function () {
+                alert("navigate to bunny page");
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#sachin").mouseleave(function () {
+                alert("lets take 10 mins break");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1 class="intro"> This is an example of jqery implementation on Hide Method() with head tags</h1>
+    <h2 class="intro">Hello To the World From Jquery Javascript Library with head tags</h2>
+    <h3> This is an example of jqery implementation on Hide Method() with head tags</h3>
+    <h4 class="intro">Hello To the World From Jquery Javascript Library with head tags</h4>
+    <h5> This is an example of jqery implementation on Hide Method() with head tags</h5>
+
+
+    <p> This is an example of jqery implementation on Hide Method()</p>
+    <p>Hello To the World From Jquery Javascript Library</p>
+    <button> Click Me </button>
+
+
+    <p>If u click me,i will dissappear</p>
+    <p>Click me also to wana disappear</p>
+    <p>Click me now also I will disappear</p>
+
+    <h1>If u double click me,i will dissappear</h1>
+    <h2>double Click me also to wana disappear</h2>
+    <h3>double Click me now also I will disappear</h3>
+
+    <p id="hari">my name is hari</p>
+
+    <p>this is not good page</p>
+
+    <h4 class="bunny">Bunny page</h4>
+
+    <p id="sachin">Check with your mouse</p>
+
+</body>
+</html>

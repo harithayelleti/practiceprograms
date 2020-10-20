@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#sachin").mouseleave(function () {
+                alert("lets take 10 mins break");
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".bunny").mouseenter(function () {
+                alert("navigate to bunny page");
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("input").focus(function () {
+                $(this).css("background-color", "yellow");
+            });
+            $("input").blur(function () {
+                $(this).css("background-color", "green");
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#hide").click(function () {
+                $("p").hide(10000);
+            });
+            $("#show").click(function () {
+                $("p").show(100000);
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("p").toggle();
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#div1").fadeIn();
+                $("#div2").fadeIn("slow");
+                $("#div3").fadeIn(5000);
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#vid1").fadeOut();
+                $("#vid2").fadeOut("fast");
+                $("#vid3").fadeOut(5000);
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#v1").fadeToggle();
+                $("#v2").fadeToggle("slow");
+                $("#v3").fadeToggle(3000);
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#d1").fadeTo("slow", 0.15);
+                $("#d2").fadeTo("slow", 0.4);
+                $("#d3").fadeTo("slow", 0.7);
+            });
+        });
+    </script>
+</head>
+<body>
+
+
+    <p id="sachin">Check with your mouse</p>
+
+    <h4 class="bunny">Bunny page</h4>
+
+    Name: <input type="text" name="fullname"><br>
+    Email: <input type="text" name="email">
+
+    <p>Thi is about the Hide and Show</p>
+
+    <button id="hide">HIDE</button>
+    <button id="show">SHOW</button>
+
+    <p>Here it is the toggle example</p>
+    <p>This is another small toggle example</p>
+
+    <button>Toggle in Hide and show</button>
+
+    <div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+    <div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+    <div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+    <button>Click to fade in boxes</button><br><br>
+
+    <div id="vid1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+    <div id="vid2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+    <div id="vid3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+    <button>Click to fade out boxes</button><br><br>
+
+
+
+
+    <div id="v1" style="width:80px;height:80px;background-color:red;"></div>
+    <br>
+    <div id="v2" style="width:80px;height:80px;background-color:green;"></div>
+    <br>
+    <div id="v3" style="width:80px;height:80px;background-color:blue;"></div>
+
+    <button>Click to fade toggle boxes</button><br><br>
+
+    <div id="d1" style="width:80px;height:80px;background-color:red;"></div><br>
+    <div id="d2" style="width:80px;height:80px;background-color:green;"></div><br>
+    <div id="d3" style="width:80px;height:80px;background-color:blue;"></div>
+    <button>Click to fade boxes</button><br><br>
+</body>
+</html >
