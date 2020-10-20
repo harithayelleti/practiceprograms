@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>json arrays</title>
+</head>
+<body>
+    <p>Access an array value of a JSON object</p>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <script>
+        var Obj, x;
+        Obj = { "name": "hari", "age": 21, "food":[ "chicken", "Paneer", "leg piece"] };
+        x = Obj.food[1];
+        document.getElementById("demo").innerHTML = x;
+
+        var myObj, i, x1 = "";
+        myObj = { "name": "hari", "age": 21, "food": ["chicken", "Paneer", "leg piece"] };
+        for (i in myObj.food) {
+            x1 += myObj.food[i] + "<br>";
+        }
+        document.getElementById("demo1").innerHTML = x1;
+
+        var myObj1, i, j, x2 = "";
+        myObj1 = {
+            "name": "hari",
+            "age": 21,
+            "cars": [
+                { "name": "Ford", "models": ["Fiesta", "Focus", "Mustang"] },
+                { "name": "BMW", "models": ["320", "X3", "X5"] },
+                { "name": "Fiat", "models": ["500", "Panda"] }
+            ]
+        }
+        for (i in myObj1.cars) {
+            x2 += "<h2>" + myObj1.cars[i].name + "</h2>";
+            for (j in myObj1.cars[i].models) {
+                x2 += myObj1.cars[i].models[j] + "<br>";
+            }
+        }
+        document.getElementById("demo2").innerHTML = x2;
+
+
+    </script>
+</body>
+</html>

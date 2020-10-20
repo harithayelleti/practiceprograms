@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Using of classes</title>
+    <style type="text/css">
+    .change{
+    font-size:50px;
+    font-family:Arial;
+    font-display:inherit;
+    font-style:italic; 
+    border:double;
+    }
+
+        .letuschange {
+            font-size: 50px;
+            font-family: Arial;
+            font-display: inherit;
+            font-style: italic;
+            color:burlywood;
+            border:dotted;
+        }
+        .color {
+            font-size: 30px;
+            font-family: Georgia;
+            font-display: inherit;
+            font-style: italic;
+            color: chocolate;
+            border:dashed;
+        }
+        .dark {
+            font-size: 20px;
+            font-family: Chiller;
+            font-display: inherit;
+            font-style: italic;
+            color: goldenrod;
+            border:groove;
+        }
+        .light {
+            font-size: 10px;
+            font-family:Lucida Calligraphy;
+            font-display: inherit;
+            font-style: italic;
+            color:crimson;
+            border:inherit;
+        }
+    </style>
+</head>
+<body style="background-color:cadetblue">
+    <h1 class="change"><b><i>Hello World</i></b></h1>
+    <h2 class="letuschange"><b><i>Hello Hari</i></b></h2>
+    <h3 class="color"><b><i>Want to travel to korea</i></b></h3>
+    <h4 class="dark"><b><i>This is about DARK series</i></b></h4>
+    <h5 class="light"><b><i>Switch on ur light</i></b></h5>
+
+    <p>Here when we Click the button to disable the button.</p>
+
+    <button id="button" onclick="myFunction()">Click me</button>
+
+    <script>
+        function myFunction() {
+            document.getElementById("button").disabled = true;
+            alert("Here the button will be disabled");
+        }
+    </script>
+
+
+
+</body>
+</html>
