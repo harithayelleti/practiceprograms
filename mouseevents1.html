@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>mouse events example</title>
+</head>
+<body>
+    <p id="pid">Example for mouse events</p><br />
+    <input type="button" onmouseover="changecolor()" value="mouseover"/>
+    <input type="button" onmouseout="changestyle()" value="mouseout" />
+    <input type="button" onmousedown="changesize()" value="mousedown" />
+    <input type="button" onmousemove="changetext()" value="mousemove" />
+    <input type="button" onmouseup="changefontfamily()" value="mouseup" />
+
+    <script>
+        function changecolor() {
+            document.getElementById("pid").style.color = "red";
+        }
+
+        function changestyle() {
+            document.getElementById("pid").style.font="italic";
+        }
+        function changesize() {
+            document.getElementById("pid").style.fontSize=20;
+        }
+        function changetext() {
+            document.getElementById("pid").innerHTML = "this is result of mouse out example";
+        }
+        function changefontfamily() {
+            document.getElementById("pid").style.fontFamily = "calibri";
+        }
+    </script>
+
+</body>
+</html>
