@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Json_parse</title>
+</head>
+<body>
+    <h1><i>JSON Parse</i></h1>
+
+    <p id="demo"></p>
+
+    <script>
+var ting = '{"name":"vamsi", "age":25, "city":"south africa","work":"engineer"}'
+var obj = JSON.parse(ting);
+document.getElementById("demo").innerHTML = obj.name + ", " + obj.age+"," + obj.city+","+obj.work;
+    </script>
+
+</body>
+</html>
