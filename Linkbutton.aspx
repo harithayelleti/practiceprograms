@@ -16,7 +16,7 @@
              Name:<asp:TextBox id="TextBox1" runat="server" />
    <asp:LinkButton id="Button1" Text="Submit"
    PostBackUrl="demo_postbackurl.aspx" runat="Server" />
-            <asp:LinkButton ID="linkButton1" runat="server" OnClick="Linkbutton1_Click" OnCommand="Command Event Handler" OnDataBinding="DataBinding Event Handler"  OnInit="Init event Handler" OnLoad="load Event Handler" OnPreRender="On PreRender event Handler" OnUnload="Unload event Handler" PostBackUrl="uri" > Facebook </asp:LinkButton><br/><br/>
+            <asp:LinkButton ID="linkButton1" runat="server" OnClick="Linkbutton1_Click" > Facebook </asp:LinkButton><br/><br/>
             
             <asp:LinkButton ID="linkButton2" runat="server" OnClick="Linkbutton1_Click" >Youtube</asp:LinkButton><br/><br/>
             
