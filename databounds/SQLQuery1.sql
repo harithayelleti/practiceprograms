@@ -1,0 +1,1 @@
+﻿insert into Employee values(8,108,'teekshu','teekshuyelleti@gmail.com',8989890890809,'~/Pictures/','Female')
