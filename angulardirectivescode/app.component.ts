@@ -12,8 +12,8 @@ export class AppComponent {
 
     
   
-  //items: item[] = [{name: 'Haritha', id: 101}, {name: 'Sruthi', id: 102}, {name: 'Bunny', id: 103}];  
-  //selectedValue: string= 'Haritha'; 
+  student: s[] = [{name: 'Haritha', id: 101,City:'Vizag'}, {name: 'Sruthi', id: 102,City:'Vizag'}, {name: 'Bunny', id: 103,City:'Vizag'},{name: 'Vamsi', id: 104,City:'Vizag'}, {name: 'Kavya', id: 105,City:'AKP'}, {name: 'Priscilla', id: 106,City:'Visakhapatnam'}];  
+  selectedValue: string= 'Haritha'; 
   title = 'AngularDirectives';
   subtitle = 'Employee Data';
   Employee : any[]=[
@@ -34,9 +34,10 @@ titlee : any ="Top  Movies/WebSeries Recently" ;
 
 }
 
-class item {  
+class s {  
   name: string;  
-  id: number;  
+  id: number; 
+  City:any; 
 } 
  
 class Employee

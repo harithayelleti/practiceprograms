@@ -84,11 +84,12 @@
 
 
 <select [(ngModel)]="selectedValue">  
-  <option *ngFor="let item of items;" [value]="item.name">{{item.name}}</option>  
+  <option *ngFor="let s of student;" [value]="s.name">{{s.name}}</option>  
 </select>  
 <div class='row' [ngSwitch]="selectedValue">  
-  <div *ngSwitchCase="'One'">One is Pressed</div>  
-  <div *ngSwitchCase="'Two'">Two is Selected</div>  
+  <div *ngSwitchCase="'Haritha'">Haritha is Selected</div>  
+  <div *ngSwitchCase="'Sruthi'">Sruthi is Selected</div> 
+  <div *ngSwitchCase="'Bunny'">Bunny is Selected</div>  
   <div *ngSwitchDefault>Default Option</div>  
 </div>  
 <app-free></app-free>
