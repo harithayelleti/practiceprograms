@@ -1,0 +1,141 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Assignment</title>
+</head>
+<body>
+    
+    <div>
+        <h1>This is aexample single razor expression</h1>       
+        <label>Today's Date and Time is -- @DateTime.Now</label><br />
+        <label>Addition of 10 and 20 is:@(10 + 20)</label><br />
+        <label>Subtraction of 30 and 20 is:@(30 - 20)</label><br />
+        <label>Multiplication of 100 and 20 is:@(100 * 20)</label><br />
+        <label>Divison of 100 and 200 is:@(100 / 200)</label><br />
+        <label>Modulous of 10 and 10 is:@(10 % 10)</label>
+    </div>
+    <p>This is a example multiline razor expression</p>
+    <div>
+      
+        @{
+            var x = "Haritha";
+            var y = "yelleti";
+            var z = x + y;
+            var a = 10;
+            var b = 20;
+            var c = a + b;
+            var Name = "My name is Hari";
+            var job = "I am a .NET Trainee";
+            var ColorsList = new List<string>() { "white", "Orange", "Maroon" };
+            var NumberList = new List<int>() { 1, 2, 4, 5, 67 };
+        }
+
+
+    </div>
+    <div>
+        <label>Addition of 10 and 20 is @(c) </label><br />
+        <label>Concatination is@(z)</label>
+        <label>@Name</label><br />
+        <label>@job</label><br />
+        <label>List of Colors:@ColorsList</label><br />
+        <label>List of Numbers:@NumberList.FirstOrDefault() </label>
+    </div>
+    <div>
+        @foreach (var item in ColorsList)
+        {
+            <h1>List of Colors:@item </h1>
+        }
+    </div>
+    <div>
+        @foreach (var item in NumberList)
+        {
+            <h1>List of Number:@item </h1>
+        }
+    </div>
+    
+    <div>
+        @{
+            var variable = true;
+        }
+    </div>
+    <div>
+        @if (variable)
+        {
+            <H2>Hello,This is if block</H2>
+        }
+
+    </div>
+    <div>
+        @{
+            var variablee = 10;
+        }
+    </div>
+    <div>
+        @if (variablee % 2 == 0)
+        {
+            <H2>Hello,This is if block</H2>
+            <h2>The number is even</h2>
+        }
+        else if (variablee % 2 == 1)
+        {
+            <h2>The 10 is odd</h2>
+        }
+        
+    </div>
+    
+    <div>
+        @{
+            var variable1 = 11;
+        }
+    </div>
+    <div>
+        @if (variable1 % 2 == 0)
+        {
+            <H2>Hello,This is if block</H2>
+            <h2>The number is even</h2>
+        }
+        else if (variable1 % 2 == 1)
+        {
+            <h2>The 11 is odd</h2>
+        }
+        else
+        {
+            <h2>This is else block</h2>
+        }
+    </div>
+    <div>
+        @{
+            var variable2 = 3;
+            var is_true = true;
+        }
+    </div>
+    <div>
+        @if (variable2 == 1)
+        {
+            <H2>Hello,This is if block</H2>
+            <h2>The number is even</h2>
+        }
+        else if (variable2 == 2)
+        {
+            <h2>The 10 is odd</h2>
+        }
+        else
+        {
+            <h2>This is else block</h2>
+        }
+        <div>
+            @(variable2 == 3 ? "Number is equal to 3" : "number is not equal to 3")
+            @(is_true == true ? "Condition is true" : "Condition is not true")
+        </div>
+        
+
+    </div>
+</body>
+</html>
