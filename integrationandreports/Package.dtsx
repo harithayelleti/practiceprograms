@@ -1,0 +1,501 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/20/2020 5:45:09 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="IE-PG00N5DE"
+  DTS:CreatorName="CSCMWS\hyelleti"
+  DTS:DTSID="{5E19EF2E-495E-43E2-8400-3DC63514EA90}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.128"
+  DTS:LocaleID="6153"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{DD2B15B7-A173-4ABE-B479-39410A57C0C5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="localhost"
+      DTS:DTSID="{6E3C3E7E-CBA5-481E-903C-11209B75E5DC}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="6153"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\hyelleti\OneDrive - DXC Production\Desktop\studentInfo.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Student_Id"
+              DTS:DTSID="{3E3470BC-1073-4A00-8292-9BB9A7F09434}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Student_Name"
+              DTS:DTSID="{88D98F7E-D3A8-4F1B-9C5D-DDAB26858B9A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Marks"
+              DTS:DTSID="{ED5F340E-0AD7-445F-AF98-EE34F179C73F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{EFAB9683-2870-4CA6-BBAF-F4E58E7193A6}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[IE-PG00N5DE.Student1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{D777C88A-E06A-4A24-91CD-DFCD6E22D7D9}"
+      DTS:ObjectName="IE-PG00N5DE.Student1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=IE-PG00N5DE;Initial Catalog=Student1;Integrated Security=True;Application Name=SSIS-Package-{D777C88A-E06A-4A24-91CD-DFCD6E22D7D9}IE-PG00N5DE.Student1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\New Data Flow"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CB9D8AFC-2668-4D94-8695-E405EA208D8D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="New Data Flow">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\New Data Flow\Student Information"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="6153"
+              name="Student Information"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\New Data Flow\Student Information.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].Columns[Student_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].ExternalColumns[Student_Id]"
+                      length="50"
+                      lineageId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].Columns[Student_Id]"
+                      name="Student_Id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].Columns[Student_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].ExternalColumns[Student_Name]"
+                      length="50"
+                      lineageId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].Columns[Student_Name]"
+                      name="Student_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].Columns[Marks]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].ExternalColumns[Marks]"
+                      length="50"
+                      lineageId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].Columns[Marks]"
+                      name="Marks"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      length="50"
+                      lineageId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].ExternalColumns[Student_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Student_Id" />
+                    <externalMetadataColumn
+                      refId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].ExternalColumns[Student_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Student_Name" />
+                    <externalMetadataColumn
+                      refId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].ExternalColumns[Marks]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Marks" />
+                    <externalMetadataColumn
+                      refId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Gender" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\New Data Flow\Student Information.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\New Data Flow\Student Information.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\New Data Flow\Student Information.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\New Data Flow\Student Information.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\New Data Flow\Student Information.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\New Data Flow\Student Information.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\New Data Flow\Student Information.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\New Data Flow\Student informationDB"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="Student informationDB"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Student informationDB"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\New Data Flow\Student informationDB.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[IE-PG00N5DE.Student1]"
+                  connectionManagerRefId="Package.ConnectionManagers[IE-PG00N5DE.Student1]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\New Data Flow\Student informationDB.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\New Data Flow\Student informationDB.Inputs[ADO NET Destination Input].Columns[Student_Id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Student_Id"
+                      externalMetadataColumnId="Package\New Data Flow\Student informationDB.Inputs[ADO NET Destination Input].ExternalColumns[Student_Id]"
+                      lineageId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].Columns[Student_Id]" />
+                    <inputColumn
+                      refId="Package\New Data Flow\Student informationDB.Inputs[ADO NET Destination Input].Columns[Student_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Student_Name"
+                      externalMetadataColumnId="Package\New Data Flow\Student informationDB.Inputs[ADO NET Destination Input].ExternalColumns[Student_Name]"
+                      lineageId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].Columns[Student_Name]" />
+                    <inputColumn
+                      refId="Package\New Data Flow\Student informationDB.Inputs[ADO NET Destination Input].Columns[Marks]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Marks"
+                      externalMetadataColumnId="Package\New Data Flow\Student informationDB.Inputs[ADO NET Destination Input].ExternalColumns[Marks]"
+                      lineageId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].Columns[Marks]" />
+                    <inputColumn
+                      refId="Package\New Data Flow\Student informationDB.Inputs[ADO NET Destination Input].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Gender"
+                      externalMetadataColumnId="Package\New Data Flow\Student informationDB.Inputs[ADO NET Destination Input].ExternalColumns[Gender]"
+                      lineageId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output].Columns[Gender]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\New Data Flow\Student informationDB.Inputs[ADO NET Destination Input].ExternalColumns[Student_Id]"
+                      dataType="wstr"
+                      length="50"
+                      name="Student_Id" />
+                    <externalMetadataColumn
+                      refId="Package\New Data Flow\Student informationDB.Inputs[ADO NET Destination Input].ExternalColumns[Student_Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Student_Name" />
+                    <externalMetadataColumn
+                      refId="Package\New Data Flow\Student informationDB.Inputs[ADO NET Destination Input].ExternalColumns[Marks]"
+                      dataType="wstr"
+                      length="50"
+                      name="Marks" />
+                    <externalMetadataColumn
+                      refId="Package\New Data Flow\Student informationDB.Inputs[ADO NET Destination Input].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="50"
+                      name="Gender" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\New Data Flow\Student informationDB.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\New Data Flow\Student informationDB.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\New Data Flow\Student informationDB.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\New Data Flow\Student informationDB.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\New Data Flow\Student informationDB.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\New Data Flow\Student informationDB.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\New Data Flow.Paths[Flat File Source Output]"
+              endId="Package\New Data Flow\Student informationDB.Inputs[ADO NET Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\New Data Flow\Student Information.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\New Data Flow"
+          TopLeft="210.5,148.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\New Data Flow">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="174,42"
+          Id="Package\New Data Flow\Student Information"
+          TopLeft="304,138" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\New Data Flow\Student informationDB"
+          TopLeft="462,275" />
+        <EdgeLayout
+          Id="Package\New Data Flow.Paths[Flat File Source Output]"
+          TopLeft="391,180">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="164,95"
+              Start="0,0"
+              End="164,87.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.5"
+                    Point2="0,47.5"
+                    Point3="4,47.5" />
+                  <mssgle:LineSegment
+                    End="160,47.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="160,47.5"
+                    Point2="164,47.5"
+                    Point3="164,51.5" />
+                  <mssgle:LineSegment
+                    End="164,87.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\New Data Flow\Student informationDB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
