@@ -1,0 +1,112 @@
+﻿@model ProjectCustomer.Models.tbl_Booking
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal" style="background-color:antiquewhite">
+    
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Theater_Id, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Theater_Id, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Theater_Id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Movie, htmlAttributes: new { @class = "control-label col-md-2" })
+
+        <div class="col-md-10">
+            @Html.RadioButtonFor(model => model.Movie, "Bahubali")Bahubali <br/>
+            @Html.RadioButtonFor(model => model.Movie, "K.G.F")K.G.F  <br />
+            @Html.RadioButtonFor(model => model.Movie, "Bahubali2")Bahubali2 <br />
+            @Html.RadioButtonFor(model => model.Movie, "Orange")Orange <br />
+            @Html.RadioButtonFor(model => model.Movie, "Dil Bechara")Dil Bechara  <br />
+            @Html.RadioButtonFor(model => model.Movie, "Soorarai Pottru")Soorarai Pottru <br />
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Show, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <table>
+                <tr>
+                    <td>
+                        @Html.DropDownListFor(model => model.Show, new List<SelectListItem>
+                        { new SelectListItem{Text="Morning Show", Value="Morning Show"},
+                          new SelectListItem{Text="Matinee Show", Value="Matinee Show"},
+                          new SelectListItem{Text="First Show", Value="First Show"},
+                          new SelectListItem{Text="Second Show", Value="Second Show"} },
+
+ "Please select")
+
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Ticket_Type, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.RadioButtonFor(model => model.Ticket_Type, "Platinum")Platinum &nbsp;
+            @Html.RadioButtonFor(model => model.Ticket_Type, "Diamond")Diamond &nbsp;
+            @Html.RadioButtonFor(model => model.Ticket_Type, "Gold")Gold &nbsp;
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Persons, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Persons, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Persons, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+   @* <div class="form-group">
+        @Html.LabelFor(model => model.Cost, htmlAttributes: new { @class = "control-label col-md-2" })
+        
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Cost, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Cost, "", new { @class = "text-danger" })
+            </div>
+        
+    </div>*@
+
+    <div class="form-group"> 
+        @Html.LabelFor(model => model.Payment__Type, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.RadioButtonFor(model => model.Payment__Type, "Net Payment")Net Payment &nbsp;
+            @Html.RadioButtonFor(model => model.Payment__Type, "UPI")UPI &nbsp;
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-primary" />
+            @*<a href="~/Payment/Details" class="btn btn-primary">Submit</a>*@
+            <input type="reset" value="Reset" class="btn btn-primary" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "List")
+</div>
+<div>
+    @Html.ActionLink("Back to City","City","City")
+</div>

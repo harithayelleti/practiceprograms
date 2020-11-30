@@ -1,0 +1,57 @@
+﻿@model ProjectCustomer.Models.tbl_Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal" style="background-color:antiquewhite">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_of_Birth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_of_Birth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tickets)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tickets)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact_No)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

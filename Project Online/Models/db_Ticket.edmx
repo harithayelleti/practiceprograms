@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BookingTicketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_Booking">
+          <Key>
+            <PropertyRef Name="Theater Id" />
+          </Key>
+          <Property Name="Theater Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Movie" Type="nvarchar" MaxLength="150" />
+          <Property Name="Show" Type="nvarchar" MaxLength="150" />
+          <Property Name="Ticket Type" Type="nvarchar" MaxLength="150" />
+          <Property Name="Persons" Type="int" />
+          <Property Name="Cost" Type="int" />
+          <Property Name="Payment _Type" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityContainer Name="BookingTicketModelStoreContainer">
+          <EntitySet Name="tbl_Booking" EntityType="Self.tbl_Booking" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BookingTicketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_Booking">
+          <Key>
+            <PropertyRef Name="Theater_Id" />
+          </Key>
+          <Property Name="Theater_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Movie" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Show" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Ticket_Type" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Persons" Type="Int32" />
+          <Property Name="Cost" Type="Int32" />
+          <Property Name="Payment__Type" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="BookingTicketEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Booking" EntityType="Self.tbl_Booking" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BookingTicketModelStoreContainer" CdmEntityContainer="BookingTicketEntities">
+          <EntitySetMapping Name="tbl_Booking">
+            <EntityTypeMapping TypeName="BookingTicketModel.tbl_Booking">
+              <MappingFragment StoreEntitySet="tbl_Booking">
+                <ScalarProperty Name="Theater_Id" ColumnName="Theater Id" />
+                <ScalarProperty Name="Movie" ColumnName="Movie" />
+                <ScalarProperty Name="Show" ColumnName="Show" />
+                <ScalarProperty Name="Ticket_Type" ColumnName="Ticket Type" />
+                <ScalarProperty Name="Persons" ColumnName="Persons" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Payment__Type" ColumnName="Payment _Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

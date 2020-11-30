@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ProjectCustomer.Models.tbl_Booking>
+
+@{
+    ViewBag.Title = "Index";
+}
+@Html.Raw(TempData["SucessMesssage"])
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" style="background-color:antiquewhite" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Theater_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Movie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Show)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ticket_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Persons)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Payment__Type)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Theater_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Movie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Show)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ticket_Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Persons)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payment__Type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Theater_Id }) |
+            @Html.ActionLink("Details for your Ticket", "Details", new { id = item.Theater_Id }) |
+            @Html.ActionLink("Cancel Tikcet", "CancelTicket", new { id = item.Theater_Id })
+        </td>
+    </tr>
+}
+
+</table>

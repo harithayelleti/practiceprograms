@@ -1,0 +1,73 @@
+﻿@model ProjectCustomer.Models.tbl_Booking
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal" style="background-color:antiquewhite">
+        <dt>
+            @Html.DisplayNameFor(model => model.Theater_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Theater_Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Movie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Movie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Show)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Show)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ticket_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ticket_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Persons)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Persons)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Payment__Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payment__Type)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Theater_Id }) |
+    @Html.ActionLink("Back to List", "List")
+</p>
