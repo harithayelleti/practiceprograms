@@ -1,0 +1,41 @@
+create table Users(
+ShortId nvarchar(50)  primary key,
+Username nvarchar(100) not null,
+password nvarchar(20) not null ,
+Role nvarchar(50) not null);
+
+insert into Users values('m200','Madhura','123','Manager');
+insert into Users values('m201','Navya','1234','Developer');
+insert into Users values('m202','Mounika','12345','Tester');
+insert into Users values('m203','Madhu','123456','Support');
+
+
+create table JobPost(
+JobId int primary key,
+JobPosition nvarchar(50) not null,
+Job_Description varchar(max) not null,
+JobType varchar(50) not null,
+Experience int,
+SupervisorOrganisation nvarchar(200) NOT NULL,
+Posted_date datetime,
+Posted_By varchar(100),
+Closed_Date datetime,
+No_of_Position numeric not null,
+Closing_Remarks varchar(max)
+);
+
+
+create table Joblist(
+JobId int foreign key references JobPost(JobId) not null,
+ShortId nvarchar(50) foreign Key references Users(ShortId) not null,
+Status varchar(200));
+
+
+create table Technology(
+JobId int foreign key references JobPost(JobId) not null,
+TechnologyName varchar(100) not null);
+
+
+create table Location(
+JobId int  Foreign key references JobPost(JobId) not null,
+Location varchar(50) not null);

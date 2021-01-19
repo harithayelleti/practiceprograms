@@ -1,0 +1,74 @@
+﻿@model IEnumerable<SamplePorj1.Models.Job>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JobPosition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numberofPostions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupervisoryOrganisation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fulfilldate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobPosition)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numberofPostions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupervisoryOrganisation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fulfilldate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.JobId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.JobId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.JobId })
+        </td>
+    </tr>
+}
+
+</table>

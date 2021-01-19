@@ -1,0 +1,19 @@
+﻿@*@model SamplePorj1.Models.DashBoard*@
+
+@{
+    ViewBag.Title = "DashBoard";
+}
+
+
+<div style="text-align:center;background-image">
+    <a href='@Url.Action("Search", "job")'>
+        <input type="button" value='Employee' />
+    </a><br />
+    <a href='@Url.Action("Create", "Users")'>
+        <input type='button' value='Admin' />
+    </a><br />
+    <a href='@Url.Action("Create", "JobManager")'>
+        <input type='button' value='Manager' />
+    </a>
+</div>
+

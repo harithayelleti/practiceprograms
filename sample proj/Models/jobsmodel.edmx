@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="JobportalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="int" Nullable="false" />
+          <Property Name="JobPosition" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="JobType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PostedDate" Type="date" Nullable="false" />
+          <Property Name="PostedBy" Type="varchar" MaxLength="50" />
+          <Property Name="numberofPostions" Type="int" Nullable="false" />
+          <Property Name="SupervisoryOrganisation" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="fulfilldate" Type="datetime" Nullable="false" />
+          <Property Name="JobStatus" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Jobportal.dbo.Joblist' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Joblist">
+          <Key>
+            <PropertyRef Name="JobId" />
+            <PropertyRef Name="ShortId" />
+          </Key>
+          <Property Name="JobId" Type="int" Nullable="false" />
+          <Property Name="ShortId" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Jobportal.dbo.Locations' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Locations">
+          <Key>
+            <PropertyRef Name="JobId" />
+            <PropertyRef Name="Locationname" />
+          </Key>
+          <Property Name="JobId" Type="int" Nullable="false" />
+          <Property Name="Locationname" Type="varchar" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Jobportal.dbo.Technology' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Technology">
+          <Key>
+            <PropertyRef Name="JobId" />
+            <PropertyRef Name="Technologyname" />
+          </Key>
+          <Property Name="JobId" Type="int" Nullable="false" />
+          <Property Name="Technologyname" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ShortId" />
+          </Key>
+          <Property Name="ShortId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Joblist__JobId__2B3F6F97">
+          <End Role="Job" Type="Self.Job" Multiplicity="1" />
+          <End Role="Joblist" Type="Self.Joblist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="JobId" />
+            </Principal>
+            <Dependent Role="Joblist">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Joblist__ShortId__2C3393D0">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Joblist" Type="Self.Joblist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ShortId" />
+            </Principal>
+            <Dependent Role="Joblist">
+              <PropertyRef Name="ShortId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Locations__JobId__29572725">
+          <End Role="Job" Type="Self.Job" Multiplicity="1" />
+          <End Role="Locations" Type="Self.Locations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="JobId" />
+            </Principal>
+            <Dependent Role="Locations">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Technolog__JobId__276EDEB3">
+          <End Role="Job" Type="Self.Job" Multiplicity="1" />
+          <End Role="Technology" Type="Self.Technology" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="JobId" />
+            </Principal>
+            <Dependent Role="Technology">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JobportalModelStoreContainer">
+          <EntitySet Name="Job" EntityType="Self.Job" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Joblist" EntityType="Self.Joblist" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Joblist].[JobId] AS [JobId], 
+    [Joblist].[ShortId] AS [ShortId]
+    FROM [dbo].[Joblist] AS [Joblist]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Locations" EntityType="Self.Locations" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Locations].[JobId] AS [JobId], 
+    [Locations].[Locationname] AS [Locationname]
+    FROM [dbo].[Locations] AS [Locations]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Technology" EntityType="Self.Technology" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Technology].[JobId] AS [JobId], 
+    [Technology].[Technologyname] AS [Technologyname]
+    FROM [dbo].[Technology] AS [Technology]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Joblist__JobId__2B3F6F97" Association="Self.FK__Joblist__JobId__2B3F6F97">
+            <End Role="Job" EntitySet="Job" />
+            <End Role="Joblist" EntitySet="Joblist" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Joblist__ShortId__2C3393D0" Association="Self.FK__Joblist__ShortId__2C3393D0">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Joblist" EntitySet="Joblist" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Locations__JobId__29572725" Association="Self.FK__Locations__JobId__29572725">
+            <End Role="Job" EntitySet="Job" />
+            <End Role="Locations" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Technolog__JobId__276EDEB3" Association="Self.FK__Technolog__JobId__276EDEB3">
+            <End Role="Job" EntitySet="Job" />
+            <End Role="Technology" EntitySet="Technology" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JobportalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="Int32" Nullable="false" />
+          <Property Name="JobPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JobType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PostedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PostedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numberofPostions" Type="Int32" Nullable="false" />
+          <Property Name="SupervisoryOrganisation" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fulfilldate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="JobStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Locations" Relationship="Self.FK__Locations__JobId__29572725" FromRole="Job" ToRole="Locations" />
+          <NavigationProperty Name="Technologies" Relationship="Self.FK__Technolog__JobId__276EDEB3" FromRole="Job" ToRole="Technology" />
+          <NavigationProperty Name="Users" Relationship="Self.Joblist" FromRole="Job" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ShortId" />
+          </Key>
+          <Property Name="ShortId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Jobs" Relationship="Self.Joblist" FromRole="Users" ToRole="Job" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="JobId" />
+            <PropertyRef Name="Locationname" />
+          </Key>
+          <Property Name="JobId" Type="Int32" Nullable="false" />
+          <Property Name="Locationname" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Job" Relationship="Self.FK__Locations__JobId__29572725" FromRole="Locations" ToRole="Job" />
+        </EntityType>
+        <EntityType Name="Technology">
+          <Key>
+            <PropertyRef Name="JobId" />
+            <PropertyRef Name="Technologyname" />
+          </Key>
+          <Property Name="JobId" Type="Int32" Nullable="false" />
+          <Property Name="Technologyname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Job" Relationship="Self.FK__Technolog__JobId__276EDEB3" FromRole="Technology" ToRole="Job" />
+        </EntityType>
+        <Association Name="FK__Locations__JobId__29572725">
+          <End Role="Job" Type="Self.Job" Multiplicity="1" />
+          <End Role="Locations" Type="Self.Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="JobId" />
+            </Principal>
+            <Dependent Role="Locations">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Technolog__JobId__276EDEB3">
+          <End Role="Job" Type="Self.Job" Multiplicity="1" />
+          <End Role="Technology" Type="Self.Technology" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="JobId" />
+            </Principal>
+            <Dependent Role="Technology">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Joblist">
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="JobportalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Jobs" EntityType="Self.Job" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Locations" EntityType="Self.Location" />
+          <EntitySet Name="Technologies" EntityType="Self.Technology" />
+          <AssociationSet Name="FK__Locations__JobId__29572725" Association="Self.FK__Locations__JobId__29572725">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="Locations" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Technolog__JobId__276EDEB3" Association="Self.FK__Technolog__JobId__276EDEB3">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="Technology" EntitySet="Technologies" />
+          </AssociationSet>
+          <AssociationSet Name="Joblist" Association="Self.Joblist">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JobportalModelStoreContainer" CdmEntityContainer="JobportalEntities">
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="JobportalModel.Job">
+              <MappingFragment StoreEntitySet="Job">
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="JobPosition" ColumnName="JobPosition" />
+                <ScalarProperty Name="JobType" ColumnName="JobType" />
+                <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
+                <ScalarProperty Name="PostedBy" ColumnName="PostedBy" />
+                <ScalarProperty Name="numberofPostions" ColumnName="numberofPostions" />
+                <ScalarProperty Name="SupervisoryOrganisation" ColumnName="SupervisoryOrganisation" />
+                <ScalarProperty Name="fulfilldate" ColumnName="fulfilldate" />
+                <ScalarProperty Name="JobStatus" ColumnName="JobStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="JobportalModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ShortId" ColumnName="ShortId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="JobportalModel.Location">
+              <MappingFragment StoreEntitySet="Locations">
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="Locationname" ColumnName="Locationname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Technologies">
+            <EntityTypeMapping TypeName="JobportalModel.Technology">
+              <MappingFragment StoreEntitySet="Technology">
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="Technologyname" ColumnName="Technologyname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Joblist" TypeName="JobportalModel.Joblist" StoreEntitySet="Joblist">
+            <EndProperty Name="Job">
+              <ScalarProperty Name="JobId" ColumnName="JobId" />
+            </EndProperty>
+            <EndProperty Name="Users">
+              <ScalarProperty Name="ShortId" ColumnName="ShortId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
