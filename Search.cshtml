@@ -1,0 +1,104 @@
+﻿@model IEnumerable<SamplePorj1.Models.Job>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<div class="container">
+    <hr />
+    <img src="https://image.freepik.com/free-photo/positive-senior-leader-drawing-graph-meeting_1262-2303.jpg" width="1000" height="500" class="mx-auto d-block" />
+</div>
+
+@*<h2>Search</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+@using (Html.BeginForm("Search", "job", FormMethod.Get))
+{
+    @Html.AntiForgeryToken()
+    <table class="table table-hover table-responsive centerlook jumbotron1" style="font:bold;font-size:large;
+                        background-color:chocolate;color:darkblue;">
+        <tr style="background-color:chocolate;">
+            <th>Job Title</th>
+            <td>@Html.TextBox("searching")</td>
+
+            <td><input type="submit" value="Search" class="search-button" /></td>
+        </tr>
+    </table>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.JobId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobPosition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numberofPostions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupervisoryOrganisation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fulfilldate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobStatus)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobPosition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numberofPostions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupervisoryOrganisation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fulfilldate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobStatus)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.JobId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.JobId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.JobId })*@
+
+                @Html.ActionLink("Apply Now", "Create", "Users")
+
+
+            </td>
+        </tr>
+        }
+
+    </table>
+}
